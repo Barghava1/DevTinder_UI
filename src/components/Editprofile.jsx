@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Usercard from './Usercard';
@@ -10,8 +10,8 @@ const Editprofile = () => {
     const user=useSelector(store=>store.user)
       const [firstName,setfirst]=useState(user.firstName);
       const [lastName,setlast]=useState(user.lastName);
-      const [age,setage]=useState(user.age);
-      const [gender,setgender]=useState(user.gender);
+      const [age,setage]=useState(user.age||"");
+      const [gender,setgender]=useState(user.gender||"");
       const [photoUrl,setphoto]=useState(user.photoUrl);
       const dispatch=useDispatch();
       const [toast,settoast]=useState(false)
@@ -31,6 +31,7 @@ const Editprofile = () => {
           settoast(false)
        }, 3000);
       }
+   
 
   return (
     <>

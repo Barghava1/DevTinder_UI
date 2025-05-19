@@ -2,6 +2,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { removeFeed } from "../utils/feedSlice";
 import { addconnections } from "../utils/connectionSlice";
+import { BASE_URL } from "../utils/constants";
 
 
 const Usercard = ({user}) => {
@@ -10,7 +11,7 @@ const Usercard = ({user}) => {
     
     const handleusers=async(status,userid)=>{
     try {
-      await axios.post("http://localhost:8888/sendrequest/"+status+"/"+userid,{},
+      await axios.post(BASE_URL+"sendrequest/"+status+"/"+userid,{},
          {withCredentials:true})
          dispatch( removeFeed(_id))
       

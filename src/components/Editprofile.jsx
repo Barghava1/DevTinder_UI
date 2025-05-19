@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Usercard from './Usercard';
 import axios from 'axios';
 import { adduser } from '../utils/userSlice';
+import { BASE_URL } from '../utils/constants';
 
 
 const Editprofile = () => {
@@ -17,7 +18,7 @@ const Editprofile = () => {
       const [toast,settoast]=useState(false)
 
       const Saveprofile=async ()=>{
-        const res=await axios.patch("http://localhost:8888/profile/edit",{
+        const res=await axios.patch(BASE_URL+"profile/edit",{
             firstName,
             lastName,
             age,
